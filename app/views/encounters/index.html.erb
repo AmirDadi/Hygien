@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Encounters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>status</th>
+      <th>card_id</th>
+      <th>sensor_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @encounters.each do |encounter| %>
+      <tr>
+        <td><%= encounter.status %></td>
+        <td><%= encounter.card_id %></td>
+        <td><%= encounter.sensor_id %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

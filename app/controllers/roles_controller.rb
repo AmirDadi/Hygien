@@ -12,6 +12,7 @@ class RolesController < ApplicationController
   def show
   end
 
+
   # GET /roles/new
   def new
     @role = Role.new

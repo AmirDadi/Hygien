@@ -13,6 +13,9 @@ class ProfilesController < ApplicationController
     @encounters = Encounter.all
   end
 
+
+
+
   # GET /profiles/new
   def new
     @profile = Profile.new

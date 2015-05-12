@@ -15,5 +15,10 @@ Rails.application.config.assets.precompile += %w( jquery.dataTables.min.js )
 Rails.application.config.assets.precompile += %w( dataTables.bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( sb-admin-2.js )
 Rails.application.config.assets.precompile += %w( metisMenu.js )
-
+Rails.application.config.assets.precompile += %w(classie.js)
+Rails.application.config.assets.precompile += %w(cbpAnimatedHeader.js)
+Rails.application.config.assets.precompile += %w(jqBootstrapValidation.js)
+Rails.application.config.assets.precompile += %w(contact_me.js)
+Rails.application.config.assets.precompile += %w(freelancer.js)
+Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js )
 

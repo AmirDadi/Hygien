@@ -2,15 +2,18 @@ Rails.application.routes.draw do
  
 
 
-  devise_scope :user do
-    authenticated :user do
-      root 'profiles#index', as: :authenticated_root
-    end
+  
+  root 'home#index'
+  
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root 'profiles#index', as: :authenticated_root
+  #   end
 
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
+  #   unauthenticated do
+  #     root 'devise/sessions#new', as: :unauthenticated_root
+  #   end
+  # end
   
   resources :roles
 
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :sensors
-
+  #get 'home/index'
   resources :encounters
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

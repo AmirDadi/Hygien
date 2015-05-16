@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   # GET /profiles.json
+
+
   def index
     @profiles = Profile.all
   end
@@ -14,7 +16,12 @@ class ProfilesController < ApplicationController
     #@encounters = Encounter.all
   end
 
-
+  def charts
+    @profiles = Profile.all
+    @sensors = Sensor.all
+    @encounters = Encounter.all
+    @count = 0;
+  end
 
 
   # GET /profiles/new

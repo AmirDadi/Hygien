@@ -32,7 +32,7 @@
                                     <tbody>
                                     <% @sensors.each do |sensor| %>
                                         <tr class="odd gradeX">
-                                            <td> <%= sensor.sensor_id %> </td>
+                                            <td> <%= sensor.sid %> </td>
                                             <td> <%= sensor.type %> </td>
                                             <td> <%= sensor.location %> </td>
                                         </tr>
@@ -58,22 +58,23 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <%= javascript_include_tag('jquery.min.js') %>
+
+    <%= javascript_include_tag('bower_components/jquery/dist/jquery.min.js') %>
     
 
     <!-- Bootstrap Core JavaScript -->
-    <%= javascript_include_tag('bootstrap.min.js') %>
+    <%= javascript_include_tag('bower_components/bootstrap/dist/js/bootstrap.min.js') %>
     
     <!-- Metis Menu Plugin JavaScript -->
    
 
     <!-- DataTables JavaScript -->
 
-    <%= javascript_include_tag('jquery.dataTables.min.js') %>
-    <%= javascript_include_tag('dataTables.bootstrap.min.js') %>
-    
+    <%= javascript_include_tag('bower_components/datatables/media/js/jquery.dataTables.min.js') %>
+    <%= javascript_include_tag('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') %>
+    <%= javascript_include_tag('bower_components/metisMenu/dist/metisMenu.min.js') %>
     <!-- Custom Theme JavaScript -->
-    <%= javascript_include_tag ('sb-admin-2.js') %>
+    <%= javascript_include_tag ('dist/js/sb-admin-2.js') %>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

@@ -56,21 +56,25 @@
           
     <!-- /#wrapper -->
 
+    
     <!-- jQuery -->
-    <script src="/app/assets/javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <%= javascript_include_tag('bower_components/jquery/dist/jquery.min.js') %>
+    
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/app/assets/javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <%= javascript_include_tag('bower_components/bootstrap/dist/js/bootstrap.min.js') %>
+    
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="/app/assets/javascripts/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+   
 
     <!-- DataTables JavaScript -->
-    <script src="/app/assets/javascripts/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="/app/assets/javascripts/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
+    <%= javascript_include_tag('bower_components/datatables/media/js/jquery.dataTables.min.js') %>
+    <%= javascript_include_tag('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') %>
+    <%= javascript_include_tag('bower_components/metisMenu/dist/metisMenu.min.js') %>
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <%= javascript_include_tag ('dist/js/sb-admin-2.js') %>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

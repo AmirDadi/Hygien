@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   
   root 'home#index'
-  
+  get 'profiles/charts'
   # devise_scope :user do
   #   authenticated :user do
   #     root 'profiles#index', as: :authenticated_root
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :sensors
   #get 'home/index'
   resources :encounters
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

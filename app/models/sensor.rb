@@ -4,7 +4,7 @@ class Sensor
   include Mongoid::Timestamps
 
   	# Fields
-  	field :sensor_id, type: Integer
+  	field :sid,       type: Integer
 	field :location,  type: String
     field :type,   	  type: Integer
 

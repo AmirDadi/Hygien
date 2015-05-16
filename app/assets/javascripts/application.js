@@ -29,3 +29,6 @@
 //= require js/jqBootstrapValidation.js
 //= require js/contact_me.js
 //= require js/freelancer.js
+//= require bower_components/raphael/raphael-min.js
+//= require bower_components/morrisjs/morris.min.js
+//= require js/morris-data.js

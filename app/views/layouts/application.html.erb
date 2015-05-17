@@ -9,14 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
    
-    <title>Hygiene</title>
+    <title>کنترل بهداشت</title>
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   	<%= csrf_meta_tags %>
-    <title>Hygein Control</title>
+    
 
     <!-- Bootstrap Core CSS -->
 
+    
 </head>
 
 
@@ -29,7 +30,7 @@
 <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar top-navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -37,11 +38,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Hygiene Control</a>
+                <a class="navbar-brand" style="color: white" href="index.html">کنترل بهداشت</a>
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-left" >
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -270,44 +271,44 @@
                         </li>
                      
                         <li>
-                        	<%= link_to root_path do %>
-                        		<i class="fa fa-home fa-fw"></i> Home
+                        	<%= link_to '/home' do %>
+                        		<i class="fa fa-home fa-fw"></i> خانه
                         	<% end %>
                             <!-- <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Home </a> -->
                         </li>
                            <li>
-                            <%= link_to  '/profiles/charts' do %>
-                                <i class="fa fa-wrench fa-fw"></i> Dashboard
+                            <%= link_to  '/charts' do %>
+                                <i class="fa fa-wrench fa-fw"></i> داشبورد
                             <% end %>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <%= link_to  '/encounters' do %>
-                            	<i class="fa fa-bar-chart fa-fw"></i> Encounters
+                            	<i class="fa fa-bar-chart fa-fw"></i> رویدادها
                             <% end %>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <%= link_to '/profiles' do %>
-                            	<i class="fa fa-user fa-fw"></i> Profiles
+                            	<i class="fa fa-user fa-fw"></i> افراد
                             <% end %>
                         </li>
                         <li>
                             <%= link_to  '/sensors' do %>
-                            	<i class="fa fa-table fa-fw"></i> Sensors
+                            	<i class="fa fa-table fa-fw"></i> حسگرها
                             <% end %>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Forms <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> فرم‌ها <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <%= link_to  '/profiles/new' do %> 
-                                        <i></i> User Forms
+                                    <%= link_to  '/forms/profiles' do %> 
+                                        <i></i> افراد
                                     <% end %>
                                 </li>
                                 <li>
-                                    <%= link_to  '/sensors/new' do %> 
-                                        <i></i> Sensor Forms
+                                    <%= link_to  '/forms/sensors' do %> 
+                                        <i></i> حسگرها
                                     <% end %>
                                 </li>
                                 </ul>

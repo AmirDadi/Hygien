@@ -32,3 +32,6 @@
 //= require bower_components/raphael/raphael-min.js
 //= require bower_components/morrisjs/morris.min.js
 //= require js/morris-data.js
+//= require chartjs/js/highcharts.js
+//= require chartjs/js/inTableChart.js
+//= require chartjs/js/modules/exporting.js

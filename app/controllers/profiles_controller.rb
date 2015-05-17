@@ -21,6 +21,7 @@ class ProfilesController < ApplicationController
     @sensors = Sensor.all
     @encounters = Encounter.all
     @count = 0;
+   # render :layout =>false
   end
 
 

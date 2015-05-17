@@ -1,12 +1,76 @@
 
 
 <body>
+    <% count = 0 %>
+    <% clean_count = 0 %>
+    <% bed_events = 0 %> <!-- more than 1000 -->
+    <% sensor_events = 0 %> <!-- 500-1000 id -->
+    <% @encounters.each do |encounter| %>
+            <% if encounter.time.to_date == Time.now.to_date || true %>
+                <% count = count + 1 %> 
+                <% if encounter.status == 0 %>
+                    <%clean_count = clean_count +1 %>
+                <% end %>
+                <% if encounter.sensor_sid != nil %>
+                    <% bed_events = bed_events +1  %>
+                <% else %>
+                    <% sensor_events = sensor_events +1 %>
+                <% end %>
+            <% end %>
+    <% end %>
+
+    <%= javascript_include_tag('bower_components/jquery/dist/jquery.min.js') %>
+
+
+        <script type="text/javascript">
+        $(function () {
+
+            $(document).ready(function () {
+
+                // Build the chart
+                $('#container').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        
+                    },
+                    title: {
+                        text: 'مقایسه‌ی '
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                style: {fontFamily: 'Droid Arabic Naskh', fontSize: '10px'}
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name:   'Browser share',
+                        data: [
+                            ['سالم',  <%= clean_count %>],
+                            ['ناسالم',       <%= count - clean_count %>],
+                        ]
+                    }]
+                });
+            });
+
+        });
+        </script>
 
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">داشبورد</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -19,37 +83,21 @@
                                 <div class="col-xs-3">
                                     <i class="fa fa-line-chart fa-5x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
+                                <div class="col-xs-9 text-left">
                                     <div class="huge">
-                                    <% count = 0 %>
-                                    <% clean_count = 0 %>
-                                    <% bed_events = 0 %> <!-- more than 1000 -->
-                                    <% sensor_events = 0 %> <!-- 500-1000 id -->
-                                    <% @encounters.each do |encounter| %>
-                                            <% if encounter.time.to_date == Time.now.to_date %>
-                                                <% count = count + 1 %> 
-                                                <% if encounter.status == 0 %>
-                                                    <%clean_count = clean_count +1 %>
-                                                <% end %>
-                                                <% if encounter.sensor_sid != nil && encounter.sensor_id > 1000 %>
-                                                    <% bed_events = bed_events +1  %>
-                                                <% else %>
-                                                    <% sensor_events = sensor_events +1 %>
-                                                <% end %>
-                                            <% end %>
-                                    <% end %>
+                                    
                                     
                                     <%=count %>
                                    
 
                                     </div>
-                                    <div>No. of Today Interactions</div>
+                                    <div>تبادل‌های امروز</div>
                                 </div>
                             </div>
                         </div>
                         
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">بیش‌تر</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -63,15 +111,15 @@
                                 <div class="col-xs-3">
                                     <i class="fa fa-check fa-5x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
+                                <div class="col-xs-9 text-left">
                                     <div class="huge"><%= clean_count %></div>
-                                    <div>Clean Interaction</div>
+                                    <div> تبادل‌های تمیز </div>
                                 </div>
                             </div>
                         </div>
                         <!-- <a href="#"> -->
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">بیش‌تر</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -85,15 +133,15 @@
                                 <div class="col-xs-3">
                                     <i class="fa  fa-5x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
+                                <div class="col-xs-9 text-left">
                                     <div class="huge"> <%= sensor_events %></div>
-                                    <div>Sensor Interactions</div>
+                                    <div> برخورد با شوینده‌ها </div>
                                 </div>
                             </div>
                         </div>
                         <!-- <a href="#"> -->
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">بیش‌تر</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -107,15 +155,15 @@
                                 <div class="col-xs-3">
                                     <i class="fa fa-eye fa-5x"></i>
                                 </div>
-                                <div class="col-xs-9 text-right">
+                                <div class="col-xs-9 text-left">
                                     <div class="huge"><%= bed_events %></div>
-                                    <div>Bed Monitor Events</div>
+                                    <div>برخورد با حسگر‌های تخت</div>
                                 </div>
                             </div>
                         </div>
                         <!-- <a href="#"> -->
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">بیش‌تر</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -150,7 +198,11 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
+
+                       
+
                         <div class="panel-body">
+
                             <div id="morris-area-chart"></div>
                         </div>
                         <!-- /.panel-body -->
@@ -182,74 +234,10 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Status</th>
-                                                    <th>Name </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                   
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
+                                
                                 <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
+                                <div class="col-lg-8-2">
+                                     
                                     <div id="morris-bar-chart"></div>
                                     <div id="morris-donut-chart"></div>
                                 </div>
@@ -263,9 +251,24 @@
                                    <!-- /.col-lg-8 -->
                 
                 <!-- /.col-lg-4 -->
+
             </div>
             <!-- /.row -->
+            <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> آمار کلی
+                            </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="container" style="direction: ltr; min-width: px; height: 400px; max-width: 600px; margin: 0 auto " ></div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">مشاهده‌ی لیست افراد</a>
+                        </div>
+                </div>  
         </div>
+               <!-- /.panel-body -->
+                
         <!-- /#page-wrapper -->
 
     </div>
@@ -291,5 +294,9 @@
     <!-- Custom Theme JavaScript -->
     <%= javascript_include_tag ('dist/js/sb-admin-2.js') %>
 
+    <!-- Charts JS -->
+    <%= javascript_include_tag('chartjs/js/highcharts.js') %>
+    <%= javascript_include_tag('chartjs/js/modules/exporting.js') %>
+    
 </body>
 

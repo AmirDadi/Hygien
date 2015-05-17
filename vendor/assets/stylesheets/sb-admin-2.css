@@ -5,7 +5,7 @@
  */
 
 body {
-    background-color: #f8f8f8;
+    background-color: #222D32;
 }
 
 #wrapper {
@@ -15,20 +15,16 @@ body {
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+    background-color: #E7E7E7;
 }
 
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
-        margin: 0 0 0 250px;
+        margin: 0 250px 0 0;
         padding: 0 30px;
-        border-left: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
     }
-}
-
-.navbar-top-links {
-    margin-right: 0;
 }
 
 .navbar-top-links li {
@@ -36,7 +32,7 @@ body {
 }
 
 .navbar-top-links li:last-child {
-    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .navbar-top-links li a {
@@ -49,7 +45,7 @@ body {
 }
 
 .navbar-top-links .dropdown-menu li:last-child {
-    margin-right: 0;
+    margin-left: 0;
 }
 
 .navbar-top-links .dropdown-menu li a {
@@ -69,25 +65,25 @@ body {
 }
 
 .navbar-top-links .dropdown-messages {
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .navbar-top-links .dropdown-tasks {
-    margin-left: -59px;
+    margin-right: -59px;
 }
 
 .navbar-top-links .dropdown-alerts {
-    margin-left: -123px;
+    margin-right: -123px;
 }
 
 .navbar-top-links .dropdown-user {
-    right: 0;
-    left: auto;
+    left: 0;
+    right: auto;
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
 }
 
 .sidebar .sidebar-search {
@@ -99,11 +95,11 @@ body {
 }
 
 .sidebar ul li a.active {
-    background-color: #eee;
+    background-color: #8AA4AF;
 }
 
 .sidebar .arrow {
-    float: right;
+    float: left;
 }
 
 .sidebar .fa.arrow:before {
@@ -120,11 +116,11 @@ body {
 }
 
 .sidebar .nav-second-level li a {
-    padding-left: 37px;
+    padding-right: 37px;
 }
 
 .sidebar .nav-third-level li a {
-    padding-left: 52px;
+    padding-right: 52px;
 }
 
 @media(min-width:768px) {
@@ -138,7 +134,7 @@ body {
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
     .navbar-top-links .dropdown-alerts {
-        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -189,11 +185,11 @@ body {
 }
 
 .chat li.left .chat-body {
-    margin-left: 60px;
+    margin-right: 60px;
 }
 
 .chat li.right .chat-body {
-    margin-right: 60px;
+    margin-left: 60px;
 }
 
 .chat li .chat-body p {
@@ -202,7 +198,7 @@ body {
 
 .panel .slidedown .glyphicon,
 .chat .glyphicon {
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .chat-panel .panel-body {
@@ -224,11 +220,6 @@ body {
     height: 100%;
 }
 
-.dataTables_wrapper {
-    position: relative;
-    clear: both;
-}
-
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc,
@@ -239,19 +230,19 @@ table.dataTable thead .sorting_desc_disabled {
 
 table.dataTable thead .sorting_asc:after {
     content: "\f0de";
-    float: right;
+    float: left;
     font-family: fontawesome;
 }
 
 table.dataTable thead .sorting_desc:after {
     content: "\f0dd";
-    float: right;
+    float: left;
     font-family: fontawesome;
 }
 
 table.dataTable thead .sorting:after {
     content: "\f0dc";
-    float: right;
+    float: left;
     font-family: fontawesome;
     color: rgba(50,50,50,.5);
 }

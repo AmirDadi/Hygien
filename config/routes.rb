@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   
   root 'home#index'
   get 'profiles/charts'
+  get 'home' => 'home#index'
+  get 'charts' => 'profiles#charts'
+  get 'forms/profiles' => 'profiles#new'
+  get 'forms/sensors' => 'sensors#new'
   # devise_scope :user do
   #   authenticated :user do
   #     root 'profiles#index', as: :authenticated_root

@@ -23,6 +23,11 @@ Rails.application.config.assets.version = '1.0'
  Rails.application.config.assets.precompile += %w(bower_components/raphael/raphael-min.js)
  Rails.application.config.assets.precompile += %w(bower_components/morrisjs/morris.min.js)
  Rails.application.config.assets.precompile += %w(js/morris-data.js)
+ Rails.application.config.assets.precompile += %w(chartjs/js/highcharts.js)
+ Rails.application.config.assets.precompile += %w(chartjs/js/modules/exporting.js)
+ Rails.application.config.assets.precompile += %w(chartjs/js/inTableChart.js)
+
+
 # Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js )
 # Rails.application.config.assets.precompile += %w( metisMenu/dist/metisMenu.js )
 

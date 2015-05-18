@@ -9,7 +9,7 @@ class Sensor
     field :type,   	  type: Integer
 
 	# Relations
-	has_many :encounters
+	has_many :encounters, foreign_key => :sid
 
 
 end

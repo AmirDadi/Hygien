@@ -5,11 +5,14 @@ class Encounter
 
   	# Fields
 
-	field :time,  	  type: DateTime
-    field :status,    type: Integer
-    field :card_id,   type: String
+	field :time,  	   type: DateTime
+    field :status,     type: Integer
+    field :card_cid,   type: Integer
     field :sensor_sid, type: Integer
 	# Relations
-	belongs_to :sensor
+	belongs_to :sensor, foreign_key => :sensor_sid
+	belongs_to :card,   foreign_key => :card_cid
 
+	#Validation
+	
 end

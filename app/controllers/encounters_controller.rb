@@ -3,8 +3,8 @@ class EncountersController < ApplicationController
   def new
     @encounter = Encounter.new
     @encounter.status = params[:status]
-    @encounter.card_id = params[:card_id]
-    @encounter.sensor_id = params[:sensor_id]
+    @encounter.card_cid = params[:card_cid]
+    @encounter.sensor_sid = params[:sensor_sid]
     @encounter.time = Time.now
     @encounter.save
     render :layout =>false

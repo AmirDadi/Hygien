@@ -4,11 +4,16 @@ Rails.application.routes.draw do
 
   
   root 'home#index'
-  get 'profiles/charts'
+ 
+
   get 'home' => 'home#index'
-  get 'charts' => 'profiles#charts'
-  get 'forms/profiles' => 'profiles#new'
+  
+ 
   get 'forms/sensors' => 'sensors#new'
+
+   get 'profiles/charts' => 'profiles#charts'
+    get 'charts' => 'profiles#charts'
+    get 'forms/profiles' => 'profiles#new'
   # devise_scope :user do
   #   authenticated :user do
   #     root 'profiles#index', as: :authenticated_root
@@ -24,7 +29,9 @@ Rails.application.routes.draw do
   resources :cards
 
   devise_for :users
-  resources :profiles
+  resources :profiles 
+   
+
 
   resources :sensors
   #get 'home/index'

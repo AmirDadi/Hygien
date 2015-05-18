@@ -35,7 +35,7 @@
                                             <td> <%= profile.user_id %> </td>
                                             <td> <%= profile.name %> </td>
                                             <td> <%= profile.surname %> </td>
-                                            <td data-sparkline="69, 14, 53, 55 " > </td>
+                                            <td data-sparkline= "<%= last4Days(profile.id) %>" %> > </td>
                                         </tr>
                                     <% end %>    
                                     </tbody>

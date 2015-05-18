@@ -4,7 +4,16 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
 
+  helper_method :last4Days
+  def last4Days(personID)
+  #   profiles = Profile.all
+  #   encounters = Encounter.all
+  #   card_cid = Card.find_by(profile_id: personID).cid
+  #   encounters.each do |e|
+  #     if e.card
+      return "12, 40, 14, 55"
 
+  end
   def index
     @profiles = Profile.all
   end
